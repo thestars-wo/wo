@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>生日祝福</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            animation: fadeInBg 3s ease-in-out;
+        }
+
+        h1 {
+            color: #FF69B4;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            animation: scaleTitle 1.5s ease-in-out;
+        }
+
+        #message {
+            font-size: 24px;
+            margin-top: 50px;
+            color: #555;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            animation: fadeInMessage 2s ease-in-out;
+        }
+
+        /* 飘落彩带样式 */
+        .ribbon {
+            width: 100px;
+            height: 20px;
+            background: linear-gradient(to right, #FF69B4, #FFD700);
+            position: absolute;
+            animation: fall 5s linear infinite;
+        }
+
+        /* 动画效果 */
+        @keyframes fadeInBg {
+            0% {
+                background-color: #fff;
+            }
+
+            100% {
+                background-color: #f4f4f4;
+            }
+        }
+
+        @keyframes scaleTitle {
+            0% {
+                transform: scale(0.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInMessage {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fall {
+            0% {
+                top: -20px;
+                transform: rotate(0deg);
+            }
+
+            100% {
+                top: 100%;
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+<h1>happy birthday</h1>
+<div id="message"></div>
+<div class="ribbon" style="left: 10%;"></div>
+<div class="ribbon" style="left: 30%;"></div>
+<div class="ribbon" style="left: 50%;"></div>
+<div class="ribbon" style="left: 70%;"></div>
+<div class="ribbon" style="left: 90%;"></div>
+
+<script>
+    window.onload = function () {
+        var message = localStorage.getItem('birthdayMessage');
+        if (message) {
+            document.getElementById('message').innerHTML = message;
+        } else {
+            document.getElementById('message').innerHTML = "未找到祝福信息";
+        }
+    }
+</script>
+</body>
+
+</html>

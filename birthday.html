@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>happy birthday!!!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: linear-gradient(to bottom,lightpink,lightskyblue);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            backdrop-filter: blur(5px);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            color: #FF69B4;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: bounce 1s ease-in-out infinite alternate;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        input[type="text"]:focus {
+            border-color: #FF69B4;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #FF69B4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #FF1493;
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        .balloon {
+            width: 80px;
+            height: 120px;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            background-color: #FFD700;
+            position: absolute;
+            animation: float 5s ease-in-out infinite;
+        }
+        .string {
+            width: 2px;
+            height: 100px;
+            background-color: gray;
+            position: absolute;
+            left: 50%;
+            top: 100%;
+            transform: translateX(-50%);
+        }
+        .star {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: cornflowerblue;
+            position: absolute;
+            box-shadow: 0 0 10px honeydew;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px) translateX(0px);
+            }
+
+            50% {
+                transform: translateY(-20px) translateX(10px);
+            }
+
+            100% {
+                transform: translateY(0px) translateX(0px);
+            }
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0.5;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<h1>birthday!!!</h1>
+<input type="text" id="nameInput" placeholder="请输入你的名字">
+<button onclick="showMessage()">happy birthday</button>
+
+<div class="balloon" style="left: 5%; top: 70%;"></div>
+<div class="balloon" style="left: 20%; top: 10%;"></div>
+<div class="balloon" style="left: 80%; top: 50%;"></div>
+
+<div class="star" style="left: 3%; top: 30%;"></div>
+<div class="star" style="left: 60%; top: 20%;"></div>
+<div class="star" style="left: 90%; top: 10%;"></div>
+
+<script>
+    function showMessage() {
+        var name = document.getElementById('nameInput').value;
+        if (name === "") {
+            alert("请输入名字");
+            return;
+        }
+        var message = "日有小暖，岁有小安。何其有幸，年岁并进。新的一 岁，愿生活风平浪静，柳暗花明，三分惊喜，七分尽兴。\n"
+            + name + "，祝你生日快乐！愿岁月温柔以待，愿你心中有爱，眼中有光，行路有方向，未来不迷茫。岁岁平安，年年如意！";
+        localStorage.setItem('birthdayMessage', message);
+        window.location.href = 'happy birthday.html';
+    }
+</script>
+</body>
+
+</html>
