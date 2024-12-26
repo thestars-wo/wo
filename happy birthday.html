@@ -8,12 +8,12 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
+            background-image: linear-gradient(to right,mediumpurple,cornflowerblue,cadetblue,greenyellow);
             animation: fadeInBg 3s ease-in-out;
         }
 
         h1 {
-            color: #FF69B4;
+            color: pink;
             text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
             animation: scaleTitle 1.5s ease-in-out;
         }
@@ -25,8 +25,6 @@
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             animation: fadeInMessage 2s ease-in-out;
         }
-
-        /* 飘落彩带样式 */
         .ribbon {
             width: 100px;
             height: 20px;
@@ -34,8 +32,6 @@
             position: absolute;
             animation: fall 5s linear infinite;
         }
-
-        /* 动画效果 */
         @keyframes fadeInBg {
             0% {
                 background-color: #fff;
@@ -45,7 +41,17 @@
                 background-color: #f4f4f4;
             }
         }
-
+        @keyframes blink {
+            0%{opacity: 1;}
+            50%{
+                opacity: 0;}
+            100%{
+                opacity: 1;}
+        }
+        h1{
+            animation: blink 2s
+        infinite;
+        }
         @keyframes scaleTitle {
             0% {
                 transform: scale(0.5);
