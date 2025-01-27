@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -21,8 +21,8 @@
         }
 
         h1 {
-            color: #FF69B4;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: red;
+            text-shadow: 1px 5px 2px rgb(255,255,255);
             animation: bounce 1s ease-in-out infinite alternate;
         }
 
@@ -36,18 +36,13 @@
             transition: all 0.3s ease-in-out;
         }
 
-        input[type="text"]:focus {
-            border-color: #FF69B4;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 8px 20px;
+            font-size: 19px;
             background-color: #FF69B4;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             cursor: pointer;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease-in-out;
@@ -55,7 +50,7 @@
 
         button:hover {
             background-color: #FF1493;
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 10);
         }
         .balloon {
             width: 80px;
@@ -65,15 +60,7 @@
             position: absolute;
             animation: float 5s ease-in-out infinite;
         }
-        .string {
-            width: 2px;
-            height: 100px;
-            background-color: gray;
-            position: absolute;
-            left: 50%;
-            top: 100%;
-            transform: translateX(-50%);
-        }
+
         .star {
             width: 20px;
             height: 20px;
@@ -83,6 +70,34 @@
             box-shadow: 0 0 10px honeydew;
             animation: twinkle 3s ease-in-out infinite;
         }
+
+        .halo-container{
+            width: 300px;
+            height: 300px;
+            margin: 5px 5px;
+            position: relative;
+        }
+
+        .halo{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            box-shadow: 0 0 70px 30px rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.6), 0 0 70px 30px rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 30px 10px rgba(255, 255, 255, 0.3), 0 0 50px 20px rgba(255, 255, 255, 0.6), 0 0 70px 30px rgba(255, 255, 255, 0.9);
+        }
+
+        .other{
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+        }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -119,7 +134,7 @@
 
         @keyframes twinkle {
             0% {
-                opacity: 0.5;
+                opacity: 0.2;
             }
 
             50% {
@@ -130,35 +145,36 @@
                 opacity: 0.5;
             }
         }
+
     </style>
 </head>
 
 <body>
-<h1>birthday!!!</h1>
-<input type="text" id="nameInput" placeholder="请输入你的名字">
-<button onclick="showMessage()">happy birthday</button>
+<div class="balloon" style="left: 3%; top: 68% ;"></div>
+<div class="balloon" style="left: 12%; top: 10%;"></div>
+<div class="balloon" style="left: 87%; top: 50%;"></div>
 
-<div class="balloon" style="left: 5%; top: 70%;"></div>
-<div class="balloon" style="left: 20%; top: 10%;"></div>
-<div class="balloon" style="left: 80%; top: 50%;"></div>
+<div class="star" style="left: 3%; top: 40%;"></div>
+<div class="star" style="left: 75%; top: 85%;"></div>
+<div class="star" style="left: 85%; top: 15%;"></div>
 
-<div class="star" style="left: 3%; top: 30%;"></div>
-<div class="star" style="left: 60%; top: 20%;"></div>
-<div class="star" style="left: 90%; top: 10%;"></div>
-
-<script>
-    function showMessage() {
-        var name = document.getElementById('nameInput').value;
-        if (name === "") {
-            alert("请输入名字");
-            return;
-        }
-        var message = "日有小暖，岁有小安。何其有幸，年岁并进。新的一 岁，愿生活风平浪静，柳暗花明，三分惊喜，七分尽兴。\n"
-            + name + "，祝你生日快乐！愿岁月温柔以待，愿你心中有爱，眼中有光，行路有方向，未来不迷茫。岁岁平安，年年如意！";
-        localStorage.setItem('birthdayMessage', message);
-        window.location.href = 'happy birthday.html';
-    }
-</script>
+<div class="halo-container">
+        <div class="halo"></div>
+        <div class="other">
+            <button onclick="showMessage()">happy birthday</button>
+            <h1>大年初一！</h1>
+            <h1>喜迎新春</h1>
+            <h1>老爸生日快乐！</h1>
+            <script>
+                function showMessage() {
+                    var message = "日有小暖，岁有小安。何其有幸，年岁并进。新的一岁，愿生活风平浪静，柳暗花明，三分惊喜，七分尽兴。\n"
+                        + name + "，岁月流转，您的爱从未改变。今天是您的生日，我想对您说，爸，您辛苦了！愿您被岁月温柔以待，平安喜乐，生活似蜜般甜。生日快乐！\n";
+                    localStorage.setItem('birthdayMessage', message);
+                    window.location.href = 'happy birthday.html';
+                }
+            </script>
+        </div>
+    </div>
 </body>
 
 </html>
