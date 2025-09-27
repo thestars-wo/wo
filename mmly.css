@@ -1,0 +1,94 @@
+body{
+    background: linear-gradient(to right,pink,sandybrown);
+    font-family: sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: pink;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    animation: scaleTitle 1.5s ease-in-out;
+}
+.line2 {
+    font-size: 25px;
+    color: lightpink;
+    line-height: 4;
+}
+
+.line1 {
+    font-size: 35px;
+    color: powderblue;
+    font-weight: bold;
+}
+
+button{
+    color: skyblue;
+    padding: 5px 20px;
+    font-size: 19px;
+    background-color: wheat;
+    border: none;
+    border-radius: 70px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(1, 0.5, 0.3, 0.1);
+    height: 200px;
+    width: 200px;
+}
+
+button:hover {
+    background-color: dimgrey;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 10);
+}
+
+div{
+    text-align: center;
+    align-items: center;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: cornflowerblue;
+    position: absolute;
+    box-shadow: 0 0 10px honeydew;
+    clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .line1{
+        font-size: 30px;
+    }
+    .line2{
+        font-size: 20px;
+    }
+    button{
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 5px;
+    }
+    .star{
+        width: 20px;
+        height: 20px;
+        box-shadow: 0 5px honeydew;
+        animation-duration: 2s;
+    }
+    h1{
+        font-size: 22px;
+        margin: 15px 0;
+    }
+}

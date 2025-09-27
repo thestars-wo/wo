@@ -1,0 +1,172 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position:fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/img_1.png");
+    background-size: cover;
+    filter: brightness(100%);
+    -webkit-ilter: brightness(70%);
+    z-index: -1;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    color: rosybrown;
+    padding: 20px;
+}
+
+h1{
+
+}
+
+.maple-leaf {
+    position: absolute;
+    width: 35px;
+    height: 40px;
+    clip-path: polygon(
+            50% 0%,
+            65% 20%, 75% 15%, 85% 30%, 95% 25%,
+            100% 50%, 90% 65%, 95% 80%, 80% 75%,
+            70% 90%, 50% 100%, 30% 90%, 20% 75%,
+            5% 80%, 10% 65%, 0% 50%, 5% 25%,
+            15% 30%, 25% 15%, 35% 20%
+    );
+    background: linear-gradient(135deg, yellowgreen, #c0392b);
+    transform-origin: center;
+    animation: fall linear infinite;
+    opacity: 0;
+    filter: blur(15px);
+}
+
+.maple-leaf:nth-child(1) { left:8%;animation-duration: 14s; animation-delay: 0s; }
+.maple-leaf:nth-child(2) { left:18%;animation-duration: 17s; animation-delay: 0.5s; }
+.maple-leaf:nth-child(3) { left:28%;animation-duration: 12s; animation-delay: 1s; }
+.maple-leaf:nth-child(4) { left:38%;animation-duration: 15s; animation-delay: 0.3s; }
+.maple-leaf:nth-child(5) { left: 48%;animation-duration: 16s; animation-delay: 0.8s; }
+.maple-leaf:nth-child(6) { left:58%;animation-duration: 13s; animation-delay: 0.2s; }
+.maple-leaf:nth-child(7) { left:68%;animation-duration: 18s; animation-delay: 1.2s; }
+.maple-leaf:nth-child(8) { left:78%;animation-duration: 11s; animation-delay: 0.6s; }
+.maple-leaf:nth-child(9) { left:88%;animation-duration: 14s; animation-delay: 0.9s; }
+.maple-leaf:nth-child(10) { left:92%;animation-duration: 13s; animation-delay: 0.1s; }
+
+.light{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: lightgoldenrodyellow;
+    position: absolute;
+    box-shadow: 0 0 10px honeydew;
+    animation: smalllight 3s ease-in-out infinite;
+    filter: blur(9px);
+}
+
+@keyframes fall {
+    0% {
+        right: -50px;
+        top: -50px;
+        opacity: 1;
+        transform: rotate(0deg) translateX(0);
+    }
+    100% {
+        right: 100vh;
+        top: 100vh;
+        opacity: 0;
+        transform: rotate(-360deg) translateX(0);
+    }
+}
+
+@keyframes smalllight {
+    0% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .container::before{
+        background-position: center;
+        filter: brightness(97%);
+        -webkit-filter: brightness(98%);
+    }
+    .maple-leaf{
+        width: 25px;
+        height: 30px;
+        filter: blur(8px);
+    }
+    .maple-leaf:nth-child(1){animation-duration: 10s;}
+    .maple-leaf:nth-child(2){animation-duration: 12s;}
+    .maple-leaf:nth-child(3){animation-duration: 8s;}
+    .maple-leaf:nth-child(4){animation-duration: 10s;}
+    .maple-leaf:nth-child(5){animation-duration: 11s;}
+    .maple-leaf:nth-child(6){animation-duration: 9s;}
+    .maple-leaf:nth-child(7){animation-duration: 12s;}
+    .maple-leaf:nth-child(8){animation-duration: 7s;}
+    .maple-leaf:nth-child(9){animation-duration: 10s;}
+    .maple-leaf:nth-child(10){animation-duration: 9s;}
+    .maple-leaf:nth-child(1){left: 5%;}
+    .maple-leaf:nth-child(2){left: 15%;}
+    .maple-leaf:nth-child(3){left: 25%;}
+    .maple-leaf:nth-child(4){left: 35%;}
+    .maple-leaf:nth-child(5){left: 45%;}
+    .maple-leaf:nth-child(6){left: 55%;}
+    .maple-leaf:nth-child(7){left: 65%;}
+    .maple-leaf:nth-child(8){left: 75%;}
+    .maple-leaf:nth-child(9){left: 85%;}
+    .maple-leaf:nth-child(10){left: 95%;}
+    .light{
+        width: 15px;
+        height: 15px;
+        animation-duration: 2s;
+        box-shadow: 0 0 6px honeydew;
+        filter: blur(6px);
+    }
+    @keyframes fall {
+        0%{
+            right: -30px;
+            top: -30px;
+            opacity: 1;
+            transform: rotate(0deg) translateX(0);
+        }
+        100%{
+            right: 100%;
+            top: 100vh;
+            opacity: 0.2;
+            transform: rotate(-180deg) translateX(0);
+        }
+    }
+    @keyframes smalllight {
+        0%{
+            opacity: 0.3;
+        }
+        50%{
+            opacity: 0.8;
+        }
+        100%{
+            opacity: 0.3;
+        }
+    }
+}
